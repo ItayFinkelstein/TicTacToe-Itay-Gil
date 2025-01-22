@@ -17,10 +17,8 @@
         android:textSize="58dp"
         app:layout_constraintBottom_toTopOf="@+id/activity_main_turn_result_display_textView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.617" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/activity_main_turn_result_display_textView"
@@ -38,185 +36,195 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.943" />
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/board"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:orientation="vertical"
         android:padding="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintDimensionRatio="1:1"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.5">
+        app:layout_constraintVertical_bias="0.541">
 
-        <LinearLayout
-            android:layout_width="match_parent"
+        <ImageButton
+            android:id="@+id/activity_main_topLeft_ImageButton"
+            android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_weight="1"
-            android:orientation="horizontal">
-
-            <ImageButton
-                android:id="@+id/activity_main_topLeft_ImageButton"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:contentDescription="topLeft_ImageButton"
-                android:layout_weight="1"
-                android:background="@color/white"
-                android:textColor="@color/black"
-                android:textSize="40sp"
-
-                android:textStyle="bold" />
-
-            <View
-                android:layout_width="10dp"
-                android:layout_height="match_parent"
-                android:background="@color/black" />
-
-            <ImageButton
-                android:id="@+id/activity_main_topMiddle_ImageButton"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:contentDescription="topMiddle_ImageButton"
-                android:layout_weight="1"
-                android:background="@color/white"
-                android:textColor="@color/black"
-                android:textSize="40sp"
-                android:textStyle="bold" />
-
-            <View
-                android:layout_width="10dp"
-                android:layout_height="match_parent"
-                android:background="@color/black" />
-
-            <ImageButton
-                android:id="@+id/activity_main_topRight_ImageButton"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:contentDescription="topRight_ImageButton"
-                android:layout_weight="1"
-                android:background="@color/white"
-                android:textColor="@color/black"
-                android:textSize="40sp"
-                android:textStyle="bold" />
-
-        </LinearLayout>
+            android:background="@color/white"
+            android:contentDescription="topLeft_ImageButton"
+            app:layout_constraintBottom_toTopOf="@+id/view2"
+            app:layout_constraintEnd_toStartOf="@+id/view1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <View
-            android:layout_width="match_parent"
-            android:layout_height="10dp"
-            android:background="@color/black" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
+            android:id="@+id/view1"
+            android:layout_width="10dp"
             android:layout_height="0dp"
-            android:layout_weight="1"
-            android:orientation="horizontal">
+            android:background="@color/black"
+            app:layout_constraintBottom_toTopOf="@+id/view2"
+            app:layout_constraintEnd_toStartOf="@+id/activity_main_topMiddle_ImageButton"
+            app:layout_constraintStart_toEndOf="@+id/activity_main_topLeft_ImageButton"
+            app:layout_constraintTop_toTopOf="parent" />
 
-            <ImageButton
-                android:id="@+id/activity_main_middleLeft_ImageButton"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:contentDescription="middleLeft_ImageButton"
-                android:layout_weight="1"
-                android:background="@color/white"
-                android:textColor="@color/black"
-                android:textSize="40sp"
-                android:textStyle="bold" />
-
-            <View
-                android:layout_width="10dp"
-                android:layout_height="match_parent"
-                android:background="@color/black" />
-
-            <ImageButton
-                android:id="@+id/activity_main_center_ImageButton"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:contentDescription="center_ImageButton"
-                android:layout_weight="1"
-                android:background="@color/white"
-                android:textColor="@color/black"
-                android:textSize="40sp"
-                android:textStyle="bold" />
-
-            <View
-                android:layout_width="10dp"
-                android:layout_height="match_parent"
-                android:background="@color/black" />
-
-            <ImageButton
-                android:id="@+id/activity_main_middleRight_ImageButton"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:contentDescription="middleRight_ImageButton"
-                android:layout_weight="1"
-                android:background="@color/white"
-                android:textColor="@color/black"
-                android:textSize="40sp"
-                android:textStyle="bold" />
-
-        </LinearLayout>
+        <ImageButton
+            android:id="@+id/activity_main_topMiddle_ImageButton"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@color/white"
+            android:contentDescription="topMiddle_ImageButton"
+            app:layout_constraintBottom_toTopOf="@+id/view2"
+            app:layout_constraintEnd_toStartOf="@+id/view3"
+            app:layout_constraintStart_toEndOf="@+id/view1"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <View
+            android:id="@+id/view3"
+            android:layout_width="10dp"
+            android:layout_height="0dp"
+            android:background="@color/black"
+            app:layout_constraintBottom_toTopOf="@+id/view2"
+            app:layout_constraintEnd_toStartOf="@+id/activity_main_topRight_ImageButton"
+            app:layout_constraintStart_toEndOf="@+id/activity_main_topMiddle_ImageButton"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageButton
+            android:id="@+id/activity_main_topRight_ImageButton"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@color/white"
+            android:contentDescription="topRight_ImageButton"
+            app:layout_constraintBottom_toTopOf="@+id/view2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/view3"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:id="@+id/view2"
             android:layout_width="match_parent"
             android:layout_height="10dp"
-            android:background="@color/black" />
+            android:background="@color/black"
+            app:layout_constraintBottom_toTopOf="@+id/activity_main_middleLeft_ImageButton"
+            app:layout_constraintTop_toBottomOf="@+id/activity_main_topLeft_ImageButton" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
+        <ImageButton
+            android:id="@+id/activity_main_middleLeft_ImageButton"
+            android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_weight="1"
-            android:orientation="horizontal">
+            android:background="@color/white"
+            android:contentDescription="middleLeft_ImageButton"
+            app:layout_constraintBottom_toTopOf="@+id/view5"
+            app:layout_constraintEnd_toStartOf="@+id/view4"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/view2" />
 
-            <ImageButton
-                android:id="@+id/activity_main_bottomLeft_ImageButton"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:contentDescription="bottomLeft_ImageButton"
-                android:layout_weight="1"
-                android:background="@color/white"
-                android:textColor="@color/black"
-                android:textSize="40sp"
-                android:textStyle="bold" />
+        <View
+            android:id="@+id/view4"
+            android:layout_width="10dp"
+            android:layout_height="0dp"
+            android:background="@color/black"
+            app:layout_constraintBottom_toTopOf="@+id/view5"
+            app:layout_constraintEnd_toStartOf="@+id/activity_main_center_ImageButton"
+            app:layout_constraintStart_toEndOf="@+id/activity_main_middleLeft_ImageButton"
+            app:layout_constraintTop_toBottomOf="@+id/view2" />
 
-            <View
-                android:layout_width="10dp"
-                android:layout_height="match_parent"
-                android:background="@color/black" />
+        <ImageButton
+            android:id="@+id/activity_main_center_ImageButton"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@color/white"
+            android:contentDescription="center_ImageButton"
+            app:layout_constraintBottom_toTopOf="@+id/view5"
+            app:layout_constraintEnd_toStartOf="@+id/view6"
+            app:layout_constraintStart_toEndOf="@+id/view4"
+            app:layout_constraintTop_toBottomOf="@+id/view2" />
 
-            <ImageButton
-                android:id="@+id/activity_main_bottomMiddle_ImageButton"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:contentDescription="bottomMiddle_ImageButton"
-                android:layout_weight="1"
-                android:background="@color/white"
-                android:textColor="@color/black"
-                android:textSize="40sp"
-                android:textStyle="bold" />
+        <View
+            android:id="@+id/view6"
+            android:layout_width="10dp"
+            android:layout_height="0dp"
+            android:background="@color/black"
+            app:layout_constraintBottom_toTopOf="@+id/view5"
+            app:layout_constraintEnd_toStartOf="@+id/activity_main_middleRight_ImageButton"
+            app:layout_constraintStart_toEndOf="@+id/activity_main_center_ImageButton"
+            app:layout_constraintTop_toBottomOf="@+id/view2" />
 
-            <View
-                android:layout_width="10dp"
-                android:layout_height="match_parent"
-                android:background="@color/black" />
+        <ImageButton
+            android:id="@+id/activity_main_middleRight_ImageButton"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@color/white"
+            android:contentDescription="middleRight_ImageButton"
+            app:layout_constraintBottom_toTopOf="@+id/view5"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/view6"
+            app:layout_constraintTop_toBottomOf="@+id/view2" />
 
-            <ImageButton
-                android:id="@+id/activity_main_bottomRight_ImageButton"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:contentDescription="bottomRight_ImageButton"
-                android:layout_weight="1"
-                android:background="@color/white"
-                android:textColor="@color/black"
-                android:textSize="40sp"
-                android:textStyle="bold" />
+        <View
+            android:id="@+id/view5"
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:background="@color/black"
+            app:layout_constraintBottom_toTopOf="@+id/activity_main_bottomLeft_ImageButton"
+            app:layout_constraintTop_toBottomOf="@+id/activity_main_middleLeft_ImageButton" />
 
-        </LinearLayout>
+        <ImageButton
+            android:id="@+id/activity_main_bottomLeft_ImageButton"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@color/white"
+            android:contentDescription="bottomLeft_ImageButton"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/view7"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/view5" />
 
-    </LinearLayout>
+        <View
+            android:id="@+id/view7"
+            android:layout_width="10dp"
+            android:layout_height="0dp"
+            android:background="@color/black"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/activity_main_bottomMiddle_ImageButton"
+            app:layout_constraintStart_toEndOf="@+id/activity_main_bottomLeft_ImageButton"
+            app:layout_constraintTop_toBottomOf="@+id/view5" />
+
+        <ImageButton
+            android:id="@+id/activity_main_bottomMiddle_ImageButton"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@color/white"
+            android:contentDescription="bottomMiddle_ImageButton"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/view8"
+            app:layout_constraintStart_toEndOf="@+id/view7"
+            app:layout_constraintTop_toBottomOf="@+id/view5" />
+
+        <View
+            android:id="@+id/view8"
+            android:layout_width="10dp"
+            android:layout_height="0dp"
+            android:background="@color/black"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/activity_main_bottomRight_ImageButton"
+            app:layout_constraintStart_toEndOf="@+id/activity_main_bottomMiddle_ImageButton"
+            app:layout_constraintTop_toBottomOf="@+id/view5" />
+
+        <ImageButton
+            android:id="@+id/activity_main_bottomRight_ImageButton"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@color/white"
+            android:contentDescription="bottomRight_ImageButton"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/view8"
+            app:layout_constraintTop_toBottomOf="@+id/view5" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <Button
         android:id="@+id/activity_main_playAgain_button"
