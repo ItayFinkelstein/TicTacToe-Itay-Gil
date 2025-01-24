@@ -16,5 +16,50 @@ class MainActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
+        val matrix = arrayOf(
+            charArrayOf('-', '-', '-'),
+            charArrayOf('-', '-', '-'),
+            charArrayOf('-', '-', '-')
+        )
+
+        var turn = 'X';
+
+        findViewById<ImageButton>(R.id.activity_main_topLeft_ImageButton).setOnClickListener {
+            matrix[0][0] = turn;
+            turn = if (turn == 'X') 'O' else 'X'
+        }
+        findViewById<ImageButton>(R.id.activity_main_topMiddle_ImageButton).setOnClickListener {
+            matrix[0][1] = turn;
+            turn = if (turn == 'X') 'O' else 'X'
+        }
+        findViewById<ImageButton>(R.id.activity_main_topRight_ImageButton).setOnClickListener {
+            matrix[0][2] = turn;
+            turn = if (turn == 'X') 'O' else 'X'
+        }
+        findViewById<ImageButton>(R.id.activity_main_middleLeft_ImageButton).setOnClickListener {
+            matrix[1][0] = turn;
+            turn = if (turn == 'X') 'O' else 'X'
+        }
+        findViewById<ImageButton>(R.id.activity_main_center_ImageButton).setOnClickListener {
+            matrix[1][1] = turn;
+            turn = if (turn == 'X') 'O' else 'X'
+        }
+        findViewById<ImageButton>(R.id.activity_main_middleRight_ImageButton).setOnClickListener {
+            matrix[1][2] = turn;
+            turn = if (turn == 'X') 'O' else 'X'
+        }
+        findViewById<ImageButton>(R.id.activity_main_bottomLeft_ImageButton).setOnClickListener {
+            matrix[2][0] = turn;
+            turn = if (turn == 'X') 'O' else 'X'
+        }
+        findViewById<ImageButton>(R.id.activity_main_bottomMiddle_ImageButton).setOnClickListener {
+            matrix[2][1] = turn;
+            turn = if (turn == 'X') 'O' else 'X'
+        }
+        findViewById<ImageButton>(R.id.activity_main_bottomRight_ImageButton).setOnClickListener {
+            matrix[2][2] = turn;
+            turn = if (turn == 'X') 'O' else 'X'
+        }
     }
 }
