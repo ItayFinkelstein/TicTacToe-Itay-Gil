@@ -1,12 +1,24 @@
 package fullstack.application.tic.tac.toe
 
 import android.os.Bundle
+import android.widget.ImageButton
+import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
+private const val NONE = '-'
+
 class MainActivity : AppCompatActivity() {
+    private val board = arrayOf(
+        charArrayOf(NONE, NONE, NONE),
+        charArrayOf(NONE, NONE, NONE),
+        charArrayOf(NONE, NONE, NONE)
+    )
+
+    private var currentTurn = 'X';
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -16,5 +28,38 @@ class MainActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
+        listenToBlockPress(0, 0, R.id.activity_main_topLeft_ImageButton)
+        listenToBlockPress(0, 1, R.id.activity_main_topMiddle_ImageButton)
+        listenToBlockPress(0, 2, R.id.activity_main_topRight_ImageButton)
+        listenToBlockPress(1, 0, R.id.activity_main_middleLeft_ImageButton)
+        listenToBlockPress(1, 1, R.id.activity_main_center_ImageButton)
+        listenToBlockPress(1, 2, R.id.activity_main_middleRight_ImageButton)
+        listenToBlockPress(2, 0, R.id.activity_main_bottomLeft_ImageButton)
+        listenToBlockPress(2, 1, R.id.activity_main_bottomMiddle_ImageButton)
+        listenToBlockPress(2, 2, R.id.activity_main_bottomRight_ImageButton)
     }
+
+    private fun listenToBlockPress(row: Int, column: Int, idToListenTo: Int) {
+        findViewById<ImageButton>(idToListenTo).setOnClickListener {
+            if (board[row][column] == NONE) {
+                board[row][column] = currentTurn;
+                val imageButton = findViewById<ImageButton>(idToListenTo);
+                if (currentTurn == 'X') {
+                    imageButton.setImageResource(R.drawable.x)
+                } else if (currentTurn == 'O') {
+                    imageButton.setImageResource(R.drawable.o)
+                }
+                afterTurn()
+            }
+        }
+    }
+
+    private fun afterTurn() {
+        currentTurn = if (currentTurn == 'X') 'O' else 'X'
+        val turnTextView = findViewById<TextView>(R.id.activity_main_turn_result_display_textView)
+        turnTextView.text = "Turn $currentTurn"
+
+    }
+
 }
