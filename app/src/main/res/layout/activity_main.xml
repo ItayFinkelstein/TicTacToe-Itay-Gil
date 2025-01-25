@@ -24,7 +24,7 @@
         android:id="@+id/activity_main_turn_result_display_textView"
         android:layout_width="0dp"
         android:layout_height="72dp"
-        android:background="#4E4E4E"
+        android:background="@color/red"
         android:gravity="center"
         android:text="Turn X"
         android:textColor="@color/white"
