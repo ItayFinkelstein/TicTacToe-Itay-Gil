@@ -46,9 +46,9 @@ class MainActivity : AppCompatActivity() {
                 board[row][column] = currentTurn;
                 val imageButton = findViewById<ImageButton>(idToListenTo);
                 if (currentTurn == 'X') {
-                    imageButton.setImageResource(R.drawable.x)  // Replace with your X PNG resource
+                    imageButton.setImageResource(R.drawable.x)
                 } else if (currentTurn == 'O') {
-                    imageButton.setImageResource(R.drawable.o)  // Replace with your O PNG resource
+                    imageButton.setImageResource(R.drawable.o)
                 }
                 afterTurn()
             }
