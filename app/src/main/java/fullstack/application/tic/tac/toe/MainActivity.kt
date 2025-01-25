@@ -17,6 +17,11 @@ class MainActivity : AppCompatActivity() {
         CIRCLE('O')
     }
 
+    companion object {
+        const val DRAW = "Draw"
+        const val NO_WINNER = "No winner"
+    }
+
     private val board = arrayOf(
         charArrayOf(Turn.NONE.symbol, Turn.NONE.symbol, Turn.NONE.symbol),
         charArrayOf(Turn.NONE.symbol, Turn.NONE.symbol, Turn.NONE.symbol),
@@ -75,14 +80,14 @@ class MainActivity : AppCompatActivity() {
                 val turnTextView: TextView = findViewById(R.id.activity_main_turn_result_display_textView)
 
                 val winner = getWinner()
-                if (winner != "No winner") {
+                if (winner != NO_WINNER) {
                     turnTextView.setText(winner)
 
                     val playAgainButton: Button = findViewById(R.id.activity_main_playAgain_button)
                     playAgainButton.visibility = Button.VISIBLE
                     disableAllImageButtons()
 
-                    if (winner == "Draw") {
+                    if (winner == DRAW) {
                         turnTextView.setBackgroundColor(resources.getColor(R.color.grey, theme))
                     }
                 } else {
@@ -139,28 +144,28 @@ class MainActivity : AppCompatActivity() {
     private fun getWinner(): String {
         // Check rows and columns
         for (i in board.indices) {
-            if (board[i][0] == board[i][1] && board[i][1] == board[i][2] && board[i][0] != Turn.NONE.symbol) {
-                return "Winner: ${board[i][0]}"
+            if (board[i][0] == board[i][1] && board[i][1] == board[i][2] && board[i][0] == currentTurn.symbol) {
+                return "Winner: ${currentTurn.symbol}"
             }
-            if (board[0][i] == board[1][i] && board[1][i] == board[2][i] && board[0][i] != Turn.NONE.symbol) {
-                return "Winner: ${board[0][i]}"
+            if (board[0][i] == board[1][i] && board[1][i] == board[2][i] && board[0][i] == currentTurn.symbol) {
+                return "Winner: ${currentTurn.symbol}"
             }
         }
 
         // Check diagonals
-        if (board[0][0] == board[1][1] && board[1][1] == board[2][2] && board[0][0] != Turn.NONE.symbol) {
-            return "Winner: ${board[0][0]}"
+        if (board[0][0] == board[1][1] && board[1][1] == board[2][2] && board[0][0] == currentTurn.symbol) {
+            return "Winner: ${currentTurn.symbol}"
         }
-        if (board[0][2] == board[1][1] && board[1][1] == board[2][0] && board[0][2] != Turn.NONE.symbol) {
-            return "Winner: ${board[0][2]}"
+        if (board[0][2] == board[1][1] && board[1][1] == board[2][0] && board[0][2] == currentTurn.symbol) {
+            return "Winner: ${currentTurn.symbol}"
         }
 
         // Check for draw
         if (board.all { row -> row.all { cell -> cell != Turn.NONE.symbol } }) {
-            return "Draw"
+            return DRAW
         }
 
         // No winner
-        return "No winner"
+        return NO_WINNER
     }
 }
