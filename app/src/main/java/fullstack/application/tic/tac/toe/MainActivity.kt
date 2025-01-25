@@ -8,14 +8,16 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
+private const val NONE = '-'
+
 class MainActivity : AppCompatActivity() {
     private val board = arrayOf(
-        charArrayOf('-', '-', '-'),
-        charArrayOf('-', '-', '-'),
-        charArrayOf('-', '-', '-')
+        charArrayOf(NONE, NONE, NONE),
+        charArrayOf(NONE, NONE, NONE),
+        charArrayOf(NONE, NONE, NONE)
     )
 
-    private var turn = 'X';
+    private var currentTurn = 'X';
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,12 +42,12 @@ class MainActivity : AppCompatActivity() {
 
     private fun listenToBlockPress(row: Int, column: Int, idToListenTo: Int) {
         findViewById<ImageButton>(idToListenTo).setOnClickListener {
-            if (board[row][column] == '-') {
-                board[row][column] = turn;
+            if (board[row][column] == NONE) {
+                board[row][column] = currentTurn;
                 val imageButton = findViewById<ImageButton>(idToListenTo);
-                if (turn == 'X') {
+                if (currentTurn == 'X') {
                     imageButton.setImageResource(R.drawable.x)  // Replace with your X PNG resource
-                } else if (turn == 'O') {
+                } else if (currentTurn == 'O') {
                     imageButton.setImageResource(R.drawable.o)  // Replace with your O PNG resource
                 }
                 afterTurn()
@@ -54,9 +56,9 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun afterTurn() {
-        turn = if (turn == 'X') 'O' else 'X'
+        currentTurn = if (currentTurn == 'X') 'O' else 'X'
         val turnTextView = findViewById<TextView>(R.id.activity_main_turn_result_display_textView)
-        turnTextView.text = "Turn $turn"
+        turnTextView.text = "Turn $currentTurn"
 
     }
 
