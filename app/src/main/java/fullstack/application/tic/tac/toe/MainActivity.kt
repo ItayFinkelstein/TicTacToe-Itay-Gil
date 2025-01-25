@@ -2,6 +2,7 @@ package fullstack.application.tic.tac.toe
 
 import android.os.Bundle
 import android.widget.ImageButton
+import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -39,19 +40,24 @@ class MainActivity : AppCompatActivity() {
 
     private fun listenToBlockPress(row: Int, column: Int, idToListenTo: Int) {
         findViewById<ImageButton>(idToListenTo).setOnClickListener {
-            board[row][column] = turn;
-            val imageButton = findViewById<ImageButton>(idToListenTo);
-            if (turn == 'X') {
-                imageButton.setImageResource(R.drawable.x)  // Replace with your X PNG resource
-            } else if (turn == 'O') {
-                imageButton.setImageResource(R.drawable.o)  // Replace with your O PNG resource
+            if (board[row][column] == '-') {
+                board[row][column] = turn;
+                val imageButton = findViewById<ImageButton>(idToListenTo);
+                if (turn == 'X') {
+                    imageButton.setImageResource(R.drawable.x)  // Replace with your X PNG resource
+                } else if (turn == 'O') {
+                    imageButton.setImageResource(R.drawable.o)  // Replace with your O PNG resource
+                }
+                afterTurn()
             }
-            afterTurn()
         }
     }
 
     private fun afterTurn() {
         turn = if (turn == 'X') 'O' else 'X'
+        val turnTextView = findViewById<TextView>(R.id.activity_main_turn_result_display_textView)
+        turnTextView.text = "Turn $turn"
+
     }
 
 }
